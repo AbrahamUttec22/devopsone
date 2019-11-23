@@ -8,8 +8,19 @@ pipeline {
     }
 
     stage('Build') {
-      steps {
-        sh 'php --version'
+      parallel {
+        stage('Build') {
+          steps {
+            sh 'php --version'
+          }
+        }
+
+        stage('Build Web') {
+          steps {
+            sh 'php --version'
+          }
+        }
+
       }
     }
 
